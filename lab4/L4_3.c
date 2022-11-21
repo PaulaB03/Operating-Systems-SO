@@ -46,7 +46,7 @@ int main(int argc, char ** argv) {
 
     // Parent instruction
     for(int i=1; i <= argc; ++i) {
-            printf("Done Parent %d Me %d\n", getppid(), getpid());
+            printf("Done Parent %d Me %d\n", getppid(), pid[i]);
             wait(NULL);
         }
 
