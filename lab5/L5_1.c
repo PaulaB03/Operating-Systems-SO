@@ -6,16 +6,6 @@
 #include <sys/mman.h>
 #include <sys/wait.h>
 
-void collatz(int number) {
-    printf("%d ", number);
-
-    if(number > 1)
-        if(number % 2 == 0)
-            collatz(number / 2);
-        else
-            collatz(3 * number + 1);
-}
-
 int main(int argc, char **argv) {
     // Check if the format is "./shmcollatz 9 16 ..."
     if(argc < 2) {
@@ -23,7 +13,7 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    printf("Starting Parent: %d\n", getppid());    
+    printf("Starting Parent: %d\n", getpid());    
     
     // Create the shared memory
     char shm_name[] = "collatz_shm";
